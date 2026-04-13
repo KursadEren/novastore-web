@@ -1,0 +1,23 @@
+// Sidebar
+className="bg-blue-900"      // #1E3A8A
+
+// Primary butonlar
+className="bg-blue-600"      // #2563EB
+
+// Sayfa arka planı
+className="bg-slate-50"      // #F8FAFC
+
+// Kartlar
+className="bg-white"         // #FFFFFF
+
+// Metin
+className="text-slate-900"   // #0F172A (başlık)
+className="text-slate-500"   // #64748B (ikincil)
+
+// Durum badge'leri
+className="bg-emerald-500"   // #10B981
+className="bg-red-500"       // #EF4444
+className="bg-amber-500"     // #F59E0B
+
+// Border / ayırıcılar
+className="border-slate-200" // #E2E8F0
