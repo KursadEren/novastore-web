@@ -16,8 +16,8 @@ const List = ({ viewMode, type = "product", data, onDelete, onUpdate,onEdit }) =
       {type === "product" && viewMode === "grid" && (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 mt-6">
           {data.map(product => (
-            <div key={product.id} className="bg-white p-4 h-96 flex flex-col justify-end rounded-xl shadow-sm">
-              <img src={product.image} alt={product.name} className="w-full h-56 object-cover rounded-lg mb-3" />
+            <div key={product.id} className="bg-white p-4 h-96 flex flex-col justify-end rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-2 group">
+              <img src={product.image} alt={product.name} className="w-full h-56 object-cover rounded-lg mb-3 group-hover:scale-105 transition-transform duration-300" />
               <div className="flex justify-between items-start">
                 <div>
                   <h3 className="font-bold text-slate-900">{product.name}</h3>
@@ -61,7 +61,7 @@ const List = ({ viewMode, type = "product", data, onDelete, onUpdate,onEdit }) =
             </thead>
             <tbody>
               {data.map(product => (
-                <tr key={product.id} className="border-b border-slate-100 hover:bg-slate-50">
+                <tr key={product.id} className="border-b border-slate-100 hover:bg-blue-50 transition-colors duration-200">
                   <td className="p-3 sm:p-4 text-slate-500">{product.id}</td>
                   <td className="p-3 sm:p-4 font-medium text-slate-900">{product.name}</td>
                   <td className="p-3 sm:p-4">
@@ -108,7 +108,7 @@ const List = ({ viewMode, type = "product", data, onDelete, onUpdate,onEdit }) =
             </thead>
             <tbody>
               {data.map(student => (
-                <tr key={student.id} className="border-b border-slate-100 hover:bg-slate-50">
+                <tr key={student.id} className="border-b border-slate-100 hover:bg-blue-50 transition-colors duration-200">
                   <td className="p-3 sm:p-4 text-slate-500">{student.id}</td>
                   <td className="p-3 sm:p-4 font-medium text-slate-900">{student.name}</td>
                   <td className="p-3 sm:p-4 text-slate-700">{student.school}</td>

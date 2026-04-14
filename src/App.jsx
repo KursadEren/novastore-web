@@ -6,6 +6,7 @@ import Student from './pages/Student';
 import NotFound from './pages/NotFound';
 import Sidebar from './components/Sidebar';
 import Settings from './pages/Settings';
+import AnimationTest from './pages/AnimationTest';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Route path='/Product' element={<Products />} />
           <Route path='/Student' element={<Student />} />
           <Route path='/Settings' element={<Settings />} />
+          <Route path='/animation-test' element={<AnimationTest />} />
           <Route path='/*' element={<NotFound />} />
 
         </Routes>

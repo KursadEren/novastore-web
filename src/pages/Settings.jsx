@@ -27,8 +27,8 @@ const Settings = () => {
       <p className="text-slate-500 mt-1">Kantin bilgilerini düzenleyin</p>
 
       {saved && (
-        <div className="bg-emerald-100 text-emerald-600 px-4 py-3 rounded-lg mt-4 font-medium text-sm sm:text-base">
-          Ayarlar başarıyla kaydedildi!
+        <div className="bg-emerald-100 text-emerald-600 px-4 py-3 rounded-lg mt-4 font-medium text-sm sm:text-base animate-scaleIn shadow-lg">
+          ✓ Ayarlar başarıyla kaydedildi!
         </div>
       )}
 
