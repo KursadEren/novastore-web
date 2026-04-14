@@ -22,19 +22,19 @@ const Settings = () => {
   };
 
   return (
-    <div className="p-6">
-      <h1 className="text-2xl font-bold text-slate-900">Ayarlar</h1>
+    <div className="p-4 sm:p-6">
+      <h1 className="text-xl sm:text-2xl font-bold text-slate-900">Ayarlar</h1>
       <p className="text-slate-500 mt-1">Kantin bilgilerini düzenleyin</p>
 
       {saved && (
-        <div className="bg-emerald-100 text-emerald-600 px-4 py-3 rounded-lg mt-4 font-medium">
+        <div className="bg-emerald-100 text-emerald-600 px-4 py-3 rounded-lg mt-4 font-medium text-sm sm:text-base">
           Ayarlar başarıyla kaydedildi!
         </div>
       )}
 
       {/* Kantin Bilgileri */}
-      <div className="bg-white rounded-xl shadow-sm mt-6 p-6">
-        <h2 className="text-lg font-bold text-slate-900 mb-4">Kantin Bilgileri</h2>
+      <div className="bg-white rounded-xl shadow-sm mt-6 p-4 sm:p-6">
+        <h2 className="text-base sm:text-lg font-bold text-slate-900 mb-4">Kantin Bilgileri</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             <label className="block text-sm font-medium text-slate-500 mb-1">Kantin Adı</label>
@@ -94,8 +94,8 @@ const Settings = () => {
       </div>
 
       {/* Sistem Ayarları */}
-      <div className="bg-white rounded-xl shadow-sm mt-6 p-6">
-        <h2 className="text-lg font-bold text-slate-900 mb-4">Sistem Ayarları</h2>
+      <div className="bg-white rounded-xl shadow-sm mt-6 p-4 sm:p-6">
+        <h2 className="text-base sm:text-lg font-bold text-slate-900 mb-4">Sistem Ayarları</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             <label className="block text-sm font-medium text-slate-500 mb-1">Düşük Stok Limiti</label>
@@ -121,7 +121,7 @@ const Settings = () => {
       </div>
 
       {/* Kaydet Butonu */}
-      <div className="flex justify-end mt-6">
+      <div className="flex justify-center sm:justify-end mt-6">
         <Button variant="primary" onClick={handleSave}>
           Ayarları Kaydet
         </Button>

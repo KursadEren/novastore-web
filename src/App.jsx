@@ -12,9 +12,9 @@ function App() {
 
 
   return (
-    <div className='flex'>
+    <div className='flex min-h-screen'>
       <Sidebar />
-      <div className="flex-1 bg-slate-50 min-h-dvh lg:ml-72">
+      <div className="flex-1 bg-slate-50 min-h-screen lg:ml-72 w-full pt-16 lg:pt-0">
         <Routes>
           <Route path='/' element={<HomeScreen />} />
           <Route path='/Product' element={<Products />} />

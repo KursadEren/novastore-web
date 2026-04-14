@@ -43,10 +43,10 @@ const Student = () => {
   };
 
   return (
-    <div className="p-6">
-      <div className="flex justify-between items-center">
+    <div className="p-4 sm:p-6">
+      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
         <div>
-          <h1 className="font-bold text-2xl text-slate-900">Öğrenciler</h1>
+          <h1 className="font-bold text-xl sm:text-2xl text-slate-900">Öğrenciler</h1>
           <p className="text-slate-500 mt-1">{filtered.length} öğrenci listeleniyor</p>
         </div>
         <Button variant="primary" onClick={() => setShowModal(true)}>+ Öğrenci Ekle</Button>
@@ -65,15 +65,15 @@ const Student = () => {
 
       {/* Ekleme Modalı */}
       {showModal && (
-        <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50" onClick={() => setShowModal(false)}>
-          <div className="bg-white rounded-xl p-6 w-96" onClick={(e) => e.stopPropagation()}>
+        <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50 p-4" onClick={() => setShowModal(false)}>
+          <div className="bg-white rounded-xl p-6 w-full max-w-md max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
             <h2 className="text-lg font-bold text-slate-900 mb-4">Yeni Öğrenci Ekle</h2>
             <div className="flex flex-col gap-3">
               <Input variant="primary" placeholder="Ad Soyad" value={newStudent.name} onChange={(e) => setNewStudent({ ...newStudent, name: e.target.value })} />
               <Input variant="primary" placeholder="Okul" value={newStudent.school} onChange={(e) => setNewStudent({ ...newStudent, school: e.target.value })} />
               <Input variant="primary" placeholder="Veli Adı" value={newStudent.parent} onChange={(e) => setNewStudent({ ...newStudent, parent: e.target.value })} />
             </div>
-            <div className="flex justify-end gap-3 mt-6">
+            <div className="flex flex-col sm:flex-row justify-end gap-3 mt-6">
               <Button variant="outline" onClick={() => setShowModal(false)}>İptal</Button>
               <Button variant="primary" onClick={handleAdd}>Kaydet</Button>
             </div>
@@ -83,15 +83,15 @@ const Student = () => {
 
       {/* Düzenleme Modalı */}
       {editStudent && (
-        <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50" onClick={() => setEditStudent(null)}>
-          <div className="bg-white rounded-xl p-6 w-96" onClick={(e) => e.stopPropagation()}>
+        <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50 p-4" onClick={() => setEditStudent(null)}>
+          <div className="bg-white rounded-xl p-6 w-full max-w-md max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
             <h2 className="text-lg font-bold text-slate-900 mb-4">Öğrenciyi Düzenle</h2>
             <div className="flex flex-col gap-3">
               <Input variant="primary" placeholder="Ad Soyad" value={editStudent.name} onChange={(e) => setEditStudent({ ...editStudent, name: e.target.value })} />
               <Input variant="primary" placeholder="Okul" value={editStudent.school} onChange={(e) => setEditStudent({ ...editStudent, school: e.target.value })} />
               <Input variant="primary" placeholder="Veli Adı" value={editStudent.parent} onChange={(e) => setEditStudent({ ...editStudent, parent: e.target.value })} />
             </div>
-            <div className="flex justify-end gap-3 mt-6">
+            <div className="flex flex-col sm:flex-row justify-end gap-3 mt-6">
               <Button variant="outline" onClick={() => setEditStudent(null)}>İptal</Button>
               <Button variant="primary" onClick={handleUpdate}>Güncelle</Button>
             </div>

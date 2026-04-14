@@ -47,37 +47,37 @@ const List = ({ viewMode, type = "product", data, onDelete, onUpdate,onEdit }) =
       )}
 
       {type === "product" && viewMode === "list" && (
-        <div className="bg-white rounded-xl shadow-sm mt-6">
-          <table className="w-full">
+        <div className="bg-white rounded-xl shadow-sm mt-6 overflow-x-auto">
+          <table className="w-full min-w-[640px]">
             <thead>
               <tr className="border-b border-slate-200">
-                <th className="text-left p-4 text-slate-500 text-sm">#</th>
-                <th className="text-left p-4 text-slate-500 text-sm">Ürün Adı</th>
-                <th className="text-left p-4 text-slate-500 text-sm">Kategori</th>
-                <th className="text-left p-4 text-slate-500 text-sm">Fiyat</th>
-                <th className="text-left p-4 text-slate-500 text-sm">Stok</th>
-                <th className="text-left p-4 text-slate-500 text-sm">İşlemler</th>
+                <th className="text-left p-3 sm:p-4 text-slate-500 text-sm">#</th>
+                <th className="text-left p-3 sm:p-4 text-slate-500 text-sm">Ürün Adı</th>
+                <th className="text-left p-3 sm:p-4 text-slate-500 text-sm">Kategori</th>
+                <th className="text-left p-3 sm:p-4 text-slate-500 text-sm">Fiyat</th>
+                <th className="text-left p-3 sm:p-4 text-slate-500 text-sm">Stok</th>
+                <th className="text-left p-3 sm:p-4 text-slate-500 text-sm">İşlemler</th>
               </tr>
             </thead>
             <tbody>
               {data.map(product => (
                 <tr key={product.id} className="border-b border-slate-100 hover:bg-slate-50">
-                  <td className="p-4 text-slate-500">{product.id}</td>
-                  <td className="p-4 font-medium text-slate-900">{product.name}</td>
-                  <td className="p-4">
-                    <span className="text-sm text-blue-600 bg-blue-50 px-2 py-0.5 rounded">
+                  <td className="p-3 sm:p-4 text-slate-500">{product.id}</td>
+                  <td className="p-3 sm:p-4 font-medium text-slate-900">{product.name}</td>
+                  <td className="p-3 sm:p-4">
+                    <span className="text-sm text-blue-600 bg-blue-50 px-2 py-0.5 rounded whitespace-nowrap">
                       {getCategoryName(product.categoryId)}
                     </span>
                   </td>
-                  <td className="p-4 text-slate-900">₺{product.price}</td>
-                  <td className="p-4">
-                    <span className={`text-sm font-medium px-2 py-1 rounded-lg ${product.stock < 10 ? "bg-red-100 text-red-600" : "bg-emerald-100 text-emerald-600"
+                  <td className="p-3 sm:p-4 text-slate-900 whitespace-nowrap">₺{product.price}</td>
+                  <td className="p-3 sm:p-4">
+                    <span className={`text-sm font-medium px-2 py-1 rounded-lg whitespace-nowrap ${product.stock < 10 ? "bg-red-100 text-red-600" : "bg-emerald-100 text-emerald-600"
                       }`}>
                       {product.stock}
                     </span>
                   </td>
-                  <td className="p-4">
-                    <div className="flex gap-2">
+                  <td className="p-3 sm:p-4">
+                    <div className="flex gap-2 whitespace-nowrap">
                       <Button onClick={() => onUpdate(product)} variant="text">Düzenle</Button>
                       <Button variant="danger" onClick={() => {
                         if (confirm(`"${product.name}" ürününü silmek istediğinize emin misiniz?`)) {
@@ -94,33 +94,33 @@ const List = ({ viewMode, type = "product", data, onDelete, onUpdate,onEdit }) =
       )}
 
       {type === "student" && (
-        <div className="bg-white rounded-xl shadow-sm mt-6">
-          <table className="w-full">
+        <div className="bg-white rounded-xl shadow-sm mt-6 overflow-x-auto">
+          <table className="w-full min-w-[640px]">
             <thead>
               <tr className="border-b border-slate-200">
-                <th className="text-left p-4 text-slate-500 text-sm">#</th>
-                <th className="text-left p-4 text-slate-500 text-sm">Ad Soyad</th>
-                <th className="text-left p-4 text-slate-500 text-sm">Okul</th>
-                <th className="text-left p-4 text-slate-500 text-sm">Veli</th>
-                <th className="text-left p-4 text-slate-500 text-sm">Bakiye</th>
-                <th className="text-left p-4 text-slate-500 text-sm">İşlemler</th>
+                <th className="text-left p-3 sm:p-4 text-slate-500 text-sm">#</th>
+                <th className="text-left p-3 sm:p-4 text-slate-500 text-sm">Ad Soyad</th>
+                <th className="text-left p-3 sm:p-4 text-slate-500 text-sm">Okul</th>
+                <th className="text-left p-3 sm:p-4 text-slate-500 text-sm">Veli</th>
+                <th className="text-left p-3 sm:p-4 text-slate-500 text-sm">Bakiye</th>
+                <th className="text-left p-3 sm:p-4 text-slate-500 text-sm">İşlemler</th>
               </tr>
             </thead>
             <tbody>
               {data.map(student => (
                 <tr key={student.id} className="border-b border-slate-100 hover:bg-slate-50">
-                  <td className="p-4 text-slate-500">{student.id}</td>
-                  <td className="p-4 font-medium text-slate-900">{student.name}</td>
-                  <td className="p-4 text-slate-700">{student.school}</td>
-                  <td className="p-4 text-slate-700">{student.parent}</td>
-                  <td className="p-4">
-                    <span className={`text-sm font-medium px-2 py-1 rounded-lg ${student.balance < 100 ? "bg-red-100 text-red-600" : "bg-emerald-100 text-emerald-600"
+                  <td className="p-3 sm:p-4 text-slate-500">{student.id}</td>
+                  <td className="p-3 sm:p-4 font-medium text-slate-900">{student.name}</td>
+                  <td className="p-3 sm:p-4 text-slate-700">{student.school}</td>
+                  <td className="p-3 sm:p-4 text-slate-700">{student.parent}</td>
+                  <td className="p-3 sm:p-4">
+                    <span className={`text-sm font-medium px-2 py-1 rounded-lg whitespace-nowrap ${student.balance < 100 ? "bg-red-100 text-red-600" : "bg-emerald-100 text-emerald-600"
                       }`}>
                       ₺{student.balance}
                     </span>
                   </td>
-                  <td className="p-4">
-                    <div className="flex gap-2">
+                  <td className="p-3 sm:p-4">
+                    <div className="flex gap-2 whitespace-nowrap">
                       <Button variant="text" onClick={() => onEdit(student)}>Düzenle</Button>
                       <Button variant="danger" onClick={() => {
                         if (confirm(`"${student.name}" öğrencisini silmek istediğinize emin misiniz?`)) {

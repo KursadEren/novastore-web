@@ -61,18 +61,18 @@ const Products = () => {
 
 
   return (
-    <div className="p-6">
+    <div className="p-4 sm:p-6">
       {/* Başlık */}
-      <div className="flex justify-between items-center">
+      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-slate-900">Ürün Yönetimi</h1>
+          <h1 className="text-xl sm:text-2xl font-bold text-slate-900">Ürün Yönetimi</h1>
           <p className="text-slate-500 mt-1">{filtered.length} ürün listeleniyor</p>
         </div>
         <Button variant="primary" onClick={() => setShowModal(true)}>+ Yeni Ürün Ekle</Button>
       </div>
 
       {/* Filtreler */}
-      <div className="flex gap-4 mt-6">
+      <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-6">
         <input
           type="text"
           placeholder="Ürün ara..."
@@ -113,10 +113,10 @@ const Products = () => {
 
 
       {showModal && (
-        <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50" onClick={() => setShowModal(false)}>
-          <div className="bg-white rounded-xl p-6 w-96" onClick={(e) => e.stopPropagation()}>
+        <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50 p-4" onClick={() => setShowModal(false)}>
+          <div className="bg-white rounded-xl p-6 w-full max-w-md max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
             <h2 className="text-lg font-bold text-slate-900 mb-4">Yeni Ürün Ekle</h2>
-            <div className="flex flex-col sm:flex-row gap-4 mt-6">
+            <div className="flex flex-col gap-3">
               <Input
                 variant="primary"
                 placeholder="Ürün Adı"
@@ -152,7 +152,7 @@ const Products = () => {
                 onChange={(e) => setNewProduct({ ...newProduct, image: e.target.value })}
               />
             </div>
-            <div className="flex justify-end gap-3 mt-6">
+            <div className="flex flex-col sm:flex-row justify-end gap-3 mt-6">
               <Button variant="outline" onClick={() => setShowModal(false)}>İptal</Button>
               <Button variant="primary" onClick={handleAdd}>Kaydet</Button>
             </div>
@@ -160,8 +160,8 @@ const Products = () => {
         </div>
       )}
       {editProduct && (
-        <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50" onClick={() => setEditProduct(null)}>
-          <div className="bg-white rounded-xl p-6 w-96" onClick={(e) => e.stopPropagation()}>
+        <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50 p-4" onClick={() => setEditProduct(null)}>
+          <div className="bg-white rounded-xl p-6 w-full max-w-md max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
             <h2 className="text-lg font-bold text-slate-900 mb-4">Ürünü Düzenle</h2>
             <div className="flex flex-col gap-3">
               <Input
@@ -199,7 +199,7 @@ const Products = () => {
                 onChange={(e) => setEditProduct({ ...editProduct, image: e.target.value })}
               />
             </div>
-            <div className="flex justify-end gap-3 mt-6">
+            <div className="flex flex-col sm:flex-row justify-end gap-3 mt-6">
               <Button variant="outline" onClick={() => setEditProduct(null)}>İptal</Button>
               <Button variant="primary" onClick={handleUpdate}>Güncelle</Button>
             </div>

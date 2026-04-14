@@ -38,9 +38,6 @@ const Sidebar = () => {
           <NavLink to="/Product" onClick={() => setIsOpen(false)} className={({ isActive }) =>
             `p-3 rounded-lg text-white ${isActive ? "bg-white/20" : "hover:bg-white/10"}`
           }>Ürünler</NavLink>
-          <NavLink to="/Categories" onClick={() => setIsOpen(false)} className={({ isActive }) =>
-            `p-3 rounded-lg text-white ${isActive ? "bg-white/20" : "hover:bg-white/10"}`
-          }>Kategoriler</NavLink>
           <NavLink to="/Student" onClick={() => setIsOpen(false)} className={({ isActive }) =>
             `p-3 rounded-lg text-white ${isActive ? "bg-white/20" : "hover:bg-white/10"}`
           }>Öğrenciler</NavLink>
