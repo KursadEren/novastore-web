@@ -1,4 +1,4 @@
 // context/ProductContext.jsx — sadece context
 import { createContext } from "react";
-const ProductContext = createContext();
-export default ProductContext;
+const StudentContext = createContext();
+export default StudentContext;

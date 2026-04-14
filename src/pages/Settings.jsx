@@ -35,7 +35,7 @@ const Settings = () => {
       {/* Kantin Bilgileri */}
       <div className="bg-white rounded-xl shadow-sm mt-6 p-6">
         <h2 className="text-lg font-bold text-slate-900 mb-4">Kantin Bilgileri</h2>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             <label className="block text-sm font-medium text-slate-500 mb-1">Kantin Adı</label>
             <Input
@@ -96,7 +96,7 @@ const Settings = () => {
       {/* Sistem Ayarları */}
       <div className="bg-white rounded-xl shadow-sm mt-6 p-6">
         <h2 className="text-lg font-bold text-slate-900 mb-4">Sistem Ayarları</h2>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             <label className="block text-sm font-medium text-slate-500 mb-1">Düşük Stok Limiti</label>
             <Input

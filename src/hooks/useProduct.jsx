@@ -1,5 +1,6 @@
-// hooks/useProducts.js
+// hooks/useProduct.jsx
 import { useContext } from "react";
-import { ProductContext } from "../context/ProductContext";
+import ProductContext from "../context/ProductContext";
 
-export const useProducts = () => useContext(ProductContext);
+const useProducts = () => useContext(ProductContext);
+export default useProducts;

@@ -1,18 +1,20 @@
 import React from 'react';
-import mockData from '../data/mock';
-import Button from './Button';
 
-const List = ({ viewMode, type = "product", data }) => {
+import Button from './Button';
+import useProducts from '../hooks/useProduct';
+
+const List = ({ viewMode, type = "product", data, onDelete, onUpdate,onEdit }) => {
+  const { categoriesData } = useProducts();
 
   const getCategoryName = (categoryId) => {
-    const cat = mockData.categories.find(c => c.id === categoryId);
+    const cat = categoriesData.find(c => c.id === categoryId);
     return cat ? cat.name : "";
   };
 
   return (
     <div>
       {type === "product" && viewMode === "grid" && (
-        <div className="grid grid-cols-5 gap-4 mt-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 mt-6">
           {data.map(product => (
             <div key={product.id} className="bg-white p-4 h-96 flex flex-col justify-end rounded-xl shadow-sm">
               <img src={product.image} alt={product.name} className="w-full h-56 object-cover rounded-lg mb-3" />
@@ -26,14 +28,17 @@ const List = ({ viewMode, type = "product", data }) => {
                 <p className="text-lg font-bold text-slate-900">₺{product.price}</p>
               </div>
               <div className="flex justify-between items-center mt-4">
-                <span className={`text-sm font-medium px-2 py-1 rounded-lg ${
-                  product.stock < 10 ? "bg-red-100 text-red-600" : "bg-emerald-100 text-emerald-600"
-                }`}>
+                <span className={`text-sm font-medium px-2 py-1 rounded-lg ${product.stock < 10 ? "bg-red-100 text-red-600" : "bg-emerald-100 text-emerald-600"
+                  }`}>
                   Stok: {product.stock}
                 </span>
                 <div className="flex gap-2">
-                  <Button variant="text">Düzenle</Button>
-                  <Button variant="danger">Sil</Button>
+                  <Button onClick={() => onUpdate(product)} variant="text">Düzenle</Button>
+                  <Button variant="danger" onClick={() => {
+                    if (confirm(`"${product.name}" ürününü silmek istediğinize emin misiniz?`)) {
+                      onDelete(product.id);
+                    }
+                  }}>Sil</Button>
                 </div>
               </div>
             </div>
@@ -66,16 +71,19 @@ const List = ({ viewMode, type = "product", data }) => {
                   </td>
                   <td className="p-4 text-slate-900">₺{product.price}</td>
                   <td className="p-4">
-                    <span className={`text-sm font-medium px-2 py-1 rounded-lg ${
-                      product.stock < 10 ? "bg-red-100 text-red-600" : "bg-emerald-100 text-emerald-600"
-                    }`}>
+                    <span className={`text-sm font-medium px-2 py-1 rounded-lg ${product.stock < 10 ? "bg-red-100 text-red-600" : "bg-emerald-100 text-emerald-600"
+                      }`}>
                       {product.stock}
                     </span>
                   </td>
                   <td className="p-4">
                     <div className="flex gap-2">
-                      <Button variant="text">Düzenle</Button>
-                      <Button variant="danger">Sil</Button>
+                      <Button onClick={() => onUpdate(product)} variant="text">Düzenle</Button>
+                      <Button variant="danger" onClick={() => {
+                        if (confirm(`"${product.name}" ürününü silmek istediğinize emin misiniz?`)) {
+                          onDelete(product.id);
+                        }
+                      }}>Sil</Button>
                     </div>
                   </td>
                 </tr>
@@ -106,16 +114,19 @@ const List = ({ viewMode, type = "product", data }) => {
                   <td className="p-4 text-slate-700">{student.school}</td>
                   <td className="p-4 text-slate-700">{student.parent}</td>
                   <td className="p-4">
-                    <span className={`text-sm font-medium px-2 py-1 rounded-lg ${
-                      student.balance < 100 ? "bg-red-100 text-red-600" : "bg-emerald-100 text-emerald-600"
-                    }`}>
+                    <span className={`text-sm font-medium px-2 py-1 rounded-lg ${student.balance < 100 ? "bg-red-100 text-red-600" : "bg-emerald-100 text-emerald-600"
+                      }`}>
                       ₺{student.balance}
                     </span>
                   </td>
                   <td className="p-4">
                     <div className="flex gap-2">
-                      <Button variant="text">Düzenle</Button>
-                      <Button variant="danger">Sil</Button>
+                      <Button variant="text" onClick={() => onEdit(student)}>Düzenle</Button>
+                      <Button variant="danger" onClick={() => {
+                        if (confirm(`"${student.name}" öğrencisini silmek istediğinize emin misiniz?`)) {
+                          onDelete(student.id);
+                        }
+                      }}>Sil</Button>
                     </div>
                   </td>
                 </tr>
@@ -124,6 +135,9 @@ const List = ({ viewMode, type = "product", data }) => {
           </table>
         </div>
       )}
+
+
+
     </div>
   );
 };

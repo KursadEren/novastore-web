@@ -3,13 +3,17 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 import { BrowserRouter } from 'react-router-dom';
-import { ProductProvider } from './context/ProductContext.jsx';
+import { ProductProvider } from './context/ProductProvider.jsx';
+import { StudentProvider } from './context/StudentProvider.jsx';
+
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
       <ProductProvider>
-        <App />
+        <StudentProvider>
+          <App />
+        </StudentProvider>
       </ProductProvider>
     </BrowserRouter>
   </StrictMode >
